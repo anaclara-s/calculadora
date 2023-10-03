@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'constants.dart';
 import 'list_buttons.dart';
-import 'logic_operations.dart';
 
 class Calculator extends StatefulWidget {
   const Calculator({super.key});
@@ -60,7 +59,7 @@ class _CalculatorState extends State<Calculator> {
                           clearScreenOp();
                           clearScreenResult();
                         } else if (buttons[index] == 'DEL') {
-                          removeLastChat();
+                          removeLastChar();
                         } else if (buttons[index] == '=') {
                           equalPressed();
                         } else if (isOperator(previus) &&
@@ -85,5 +84,41 @@ class _CalculatorState extends State<Calculator> {
         ],
       ),
     );
+  }
+}
+
+
+  void clearScreenOp() {
+    setState(() {
+      screenOperation = '';
+      previus = '';
+    });
+  }
+
+  void clearScreenResult() {
+    setState(() {
+      screenResult = '';
+      previus = '';
+    });
+  }
+
+  void removeLastChar() {
+    setState(() {
+      screenOperation =
+          screenOperation.substring(0, screenOperation.length - 1);
+    });
+  }
+
+  void equalPressed() {
+    String a = screenOperation;
+    Parser p = Parser();
+    Expression exp = p.parse(a);
+    ContextModel cm = ContextModel();
+    double eval = exp.evaluate(EvaluationType.REAL, cm);
+
+    setState(() {
+      screenResult = eval.toString();
+      clearScreenOp();
+    });
   }
 }
