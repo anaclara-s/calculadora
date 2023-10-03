@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:math_expressions/math_expressions.dart';
 
 import 'constants.dart';
 import 'list_buttons.dart';
-import 'logic_operations.dart';
 
 class Calculator extends StatefulWidget {
   const Calculator({super.key});
@@ -28,7 +28,7 @@ class _CalculatorState extends State<Calculator> {
             alignment: Alignment.centerRight,
             child: Text(
               screenOperation,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 30,
                 color: Colors.red,
               ),
@@ -39,28 +39,28 @@ class _CalculatorState extends State<Calculator> {
             alignment: Alignment.centerRight,
             child: Text(
               screenResult,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 50,
                 color: Colors.pink,
               ),
             ),
           ),
-          Container(
+          Expanded(
             child: Center(
               child: GridView.builder(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 4),
                 itemCount: buttons.length,
                 itemBuilder: ((BuildContext context, int index) {
                   return Padding(
-                    padding: EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(10),
                     child: ElevatedButton(
                       onPressed: () {
                         if (buttons[index] == 'C') {
                           clearScreenOp();
                           clearScreenResult();
                         } else if (buttons[index] == 'DEL') {
-                          removeLastChat();
+                          removeLastChar();
                         } else if (buttons[index] == '=') {
                           equalPressed();
                         } else if (isOperator(previus) &&
@@ -73,6 +73,11 @@ class _CalculatorState extends State<Calculator> {
                           });
                         }
                       },
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor: Colors.red,
+                        backgroundColor: Colors.amber,
+                        elevation: 3,
+                      ),
                       child: Text(
                         buttons[index],
                       ),
