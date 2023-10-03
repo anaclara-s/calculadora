@@ -1,7 +1,8 @@
-import 'package:calculadora/constants.dart';
 import 'package:flutter/material.dart';
 
+import 'constants.dart';
 import 'list_buttons.dart';
+import 'logic_operations.dart';
 
 class Calculator extends StatefulWidget {
   const Calculator({super.key});
@@ -53,6 +54,29 @@ class _CalculatorState extends State<Calculator> {
                 itemBuilder: ((BuildContext context, int index) {
                   return Padding(
                     padding: EdgeInsets.all(10),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        if (buttons[index] == 'C') {
+                          clearScreenOp();
+                          clearScreenResult();
+                        } else if (buttons[index] == 'DEL') {
+                          removeLastChat();
+                        } else if (buttons[index] == '=') {
+                          equalPressed();
+                        } else if (isOperator(previus) &&
+                            isOperator(buttons[index])) {
+                          return;
+                        } else {
+                          setState(() {
+                            screenOperation += buttons[index];
+                            previus = buttons[index];
+                          });
+                        }
+                      },
+                      child: Text(
+                        buttons[index],
+                      ),
+                    ),
                   );
                 }),
               ),
