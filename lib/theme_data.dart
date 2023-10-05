@@ -9,7 +9,7 @@ class CustomThemeData {
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(30),
           ),
           backgroundColor: bgElevatedButtonColor,
           textStyle: const TextStyle(

@@ -49,6 +49,14 @@ class _CalculatorState extends State<Calculator> {
               ),
             ),
           ),
+          Padding(
+            padding: EdgeInsets.only(left: kEdgeInsets, right: kEdgeInsets),
+            child: const Divider(
+              height: 1,
+              thickness: 0.8,
+              color: bgElevatedButtonColor,
+            ),
+          ),
           Expanded(
             child: Center(
               child: GridView.builder(
