@@ -20,8 +20,6 @@ class _CalculatorState extends State<Calculator> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Container(
             padding: EdgeInsets.all(kEdgeInsets),
@@ -29,8 +27,8 @@ class _CalculatorState extends State<Calculator> {
             child: Text(
               screenOperation,
               style: const TextStyle(
-                fontSize: 30,
-                color: Colors.red,
+                fontSize: 50,
+                color: Colors.white,
               ),
             ),
           ),
@@ -41,7 +39,7 @@ class _CalculatorState extends State<Calculator> {
               screenResult,
               style: const TextStyle(
                 fontSize: 50,
-                color: Colors.pink,
+                color: Colors.white,
               ),
             ),
           ),
@@ -73,11 +71,6 @@ class _CalculatorState extends State<Calculator> {
                           });
                         }
                       },
-                      style: ElevatedButton.styleFrom(
-                        foregroundColor: Colors.red,
-                        backgroundColor: Colors.amber,
-                        elevation: 3,
-                      ),
                       child: Text(
                         buttons[index],
                       ),

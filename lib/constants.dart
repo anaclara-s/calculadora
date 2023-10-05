@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const bgPrimaryColor = Color.fromARGB(255, 0, 102, 255);
-const bgSecundaryColor = Color.fromARGB(255, 119, 0, 255);
-const hingLigthColor = Color.fromARGB(255, 0, 255, 128);
+const bgScaffoldColor = Color.fromARGB(246, 164, 163, 206);
+const bgElevatedButtonColor = Color.fromARGB(255, 49, 47, 120);
+const fontColor = Colors.white;
 double kEdgeInsets = 20;
