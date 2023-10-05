@@ -6,6 +6,6 @@ import 'theme_data.dart';
 void main() => runApp(
       MaterialApp(
         theme: CustomThemeData.getThemeData(),
-        home: Calculator(),
+        home: const Calculator(),
       ),
     );

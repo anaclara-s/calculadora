@@ -12,7 +12,7 @@ class CustomThemeData {
             borderRadius: BorderRadius.circular(20),
           ),
           backgroundColor: bgElevatedButtonColor,
-          textStyle: TextStyle(
+          textStyle: const TextStyle(
             color: fontColor,
             fontSize: 20,
           ),

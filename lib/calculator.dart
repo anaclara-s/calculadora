@@ -73,6 +73,11 @@ class _CalculatorState extends State<Calculator> {
                             screenOperation += previousResult;
                             previus = previousResult;
                           });
+                        } else if (buttons[index] == '%') {
+                          setState(() {
+                            screenOperation += buttons[index];
+                            previus = buttons[index];
+                          });
                         } else if (isOperator(previus) &&
                             isOperator(buttons[index])) {
                           return;
@@ -129,6 +134,18 @@ class _CalculatorState extends State<Calculator> {
 
   void equalPressed() {
     String screenOper = screenOperation;
+
+    if (screenOper.contains('%')) {
+      List<String> parts = screenOper.split('%');
+      if (parts.length == 2) {
+        double? leftOperand = double.tryParse(parts[0]);
+        double? rightOperand = double.tryParse(parts[1]);
+        if (leftOperand != null && rightOperand != null) {
+          screenOper = (leftOperand / 100 * rightOperand).toString();
+        }
+      }
+    }
+
     Parser parser = Parser();
     Expression exp = parser.parse(screenOper);
     ContextModel cm = ContextModel();
