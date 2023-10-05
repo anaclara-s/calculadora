@@ -8,6 +8,9 @@ class CustomThemeData {
       scaffoldBackgroundColor: bgScaffoldColor,
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
           backgroundColor: bgElevatedButtonColor,
           textStyle: TextStyle(
             color: fontColor,

@@ -15,30 +15,36 @@ class _CalculatorState extends State<Calculator> {
   var screenOperation = '';
   var screenResult = '';
   var previus = '';
+  var previousResult = '';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: <Widget>[
-          Container(
-            padding: EdgeInsets.all(kEdgeInsets),
-            alignment: Alignment.centerRight,
-            child: Text(
-              screenOperation,
-              style: const TextStyle(
-                fontSize: 50,
-                color: Colors.white,
+          Padding(
+            padding: const EdgeInsets.only(top: 100),
+            child: Container(
+              height: 100,
+              padding: EdgeInsets.only(right: kEdgeInsets),
+              alignment: Alignment.centerRight,
+              child: Text(
+                screenOperation,
+                style: const TextStyle(
+                  fontSize: 50,
+                  color: Colors.white,
+                ),
               ),
             ),
           ),
           Container(
-            padding: EdgeInsets.all(kEdgeInsets),
+            height: 100,
+            padding: EdgeInsets.only(right: kEdgeInsets),
             alignment: Alignment.centerRight,
             child: Text(
               screenResult,
               style: const TextStyle(
-                fontSize: 50,
+                fontSize: 60,
                 color: Colors.white,
               ),
             ),
@@ -59,8 +65,14 @@ class _CalculatorState extends State<Calculator> {
                           clearScreenResult();
                         } else if (buttons[index] == 'DEL') {
                           removeLastChar();
+                          clearScreenResult();
                         } else if (buttons[index] == '=') {
                           equalPressed();
+                        } else if (buttons[index] == 'ANS') {
+                          setState(() {
+                            screenOperation += previousResult;
+                            previus = previousResult;
+                          });
                         } else if (isOperator(previus) &&
                             isOperator(buttons[index])) {
                           return;
@@ -107,21 +119,24 @@ class _CalculatorState extends State<Calculator> {
   }
 
   void removeLastChar() {
-    setState(() {
-      screenOperation =
-          screenOperation.substring(0, screenOperation.length - 1);
-    });
+    if (screenOperation.isNotEmpty) {
+      setState(() {
+        screenOperation =
+            screenOperation.substring(0, screenOperation.length - 1);
+      });
+    }
   }
 
   void equalPressed() {
-    String a = screenOperation;
-    Parser p = Parser();
-    Expression exp = p.parse(a);
+    String screenOper = screenOperation;
+    Parser parser = Parser();
+    Expression exp = parser.parse(screenOper);
     ContextModel cm = ContextModel();
     double eval = exp.evaluate(EvaluationType.REAL, cm);
 
     setState(() {
       screenResult = eval.toString();
+      previousResult = screenResult;
       clearScreenOp();
     });
   }
