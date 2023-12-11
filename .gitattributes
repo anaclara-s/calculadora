@@ -2,14 +2,14 @@ $ cat .gitattributes
 
 *.dart linguist-language=Dart
 
-*.c++ linguist-language=C++
-*.CMake linguist-language=CMake
-*.html linguist-language=HTML
-*.swift linguist-language=Swift
-*.c linguist-language=C
+*.c++ linguist-language=Dart
+*.CMake linguist-language=Dart
+*.HTML linguist-language=Dart
+*.Switf linguist-language=Dart
+*.C linguist-language=Dart
 
-*.c++ linguist-vendored=true
-*.CMake linguist-vendored=true
-*.html linguist-vendored=true
-*.swift linguist-vendored=true
-*.c linguist-vendored=true
+*.c++ linguist-vendored=false
+*.CMake linguist-vendored=false
+*.HTML linguist-vendored=false
+*.Switf linguist-vendored=false
+*.C linguist-vendored=false
