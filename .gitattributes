@@ -1,2 +1,10 @@
-*.cpp linguist-vendored=true
-*.dart linguist-detectable=true
+
+* linguist-vendored
+*.dart linguist-vendored=false
+
+*.cmake linguist-vendored
+*.cpp linguist-vendored
+*.html linguist-vendored
+*.swift linguist-vendored
+*.c linguist-vendored
+
