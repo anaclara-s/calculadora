@@ -1,0 +1,3 @@
+$ cat .gitattributes 
+
+main.dart linguist-language=Dart
