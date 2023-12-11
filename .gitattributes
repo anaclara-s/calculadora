@@ -1,13 +1,13 @@
 $ cat .gitattributes 
 
-# main.dart linguist-language=Dart
-
-# *.c++ linguist-generated=true
-# *.CMake linguist-generated=true
-
 *.c++ linguist-language=Dart
 *.CMake linguist-language=Dart
 *.HTML linguist-language=Dart
 *.Switf linguist-language=Dart
 *.C linguist-language=Dart
 
+*.c++ linguist-vendored=true
+*.CMake linguist-vendored=true
+*.HTML linguist-vendored=true
+*.Switf linguist-vendored=true
+*.C linguist-vendored=true
