@@ -2,7 +2,9 @@ $ cat .gitattributes
 
 # main.dart linguist-language=Dart
 
-*.c++ linguist-generated=true
-*.CMake linguist-generated=true
+# *.c++ linguist-generated=true
+# *.CMake linguist-generated=true
 
+*.c++ linguist-vendored=true
+*.CMake linguist-vendored=true
 
