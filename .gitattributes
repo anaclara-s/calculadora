@@ -1,16 +1,6 @@
 $ cat .gitattributes 
 
+* linguist-vendored
+*.c++ linguist-vendored=false
 
 *.dart linguist-detectable=true
-
-*.c++ linguist-language=dart
-*.CMake linguist-language=dart
-*.HTML linguist-language=dart
-*.Switf linguist-language=dart
-*.C linguist-language=dart
-
-*.c++ linguist-vendored=false
-*.CMake linguist-vendored=false
-*.HTML linguist-vendored=false
-*.Switf linguist-vendored=false
-*.C linguist-vendored=false
