@@ -5,6 +5,9 @@ $ cat .gitattributes
 # *.c++ linguist-generated=true
 # *.CMake linguist-generated=true
 
-*.c++ linguist-vendored=Dart
-*.CMake linguist-vendored=dart
+*.c++ linguist-language=dart
+*.CMake linguist-language=dart
+*.HTML linguist-language=dart
+*.Switf linguist-language=dart
+*.C linguist-language=dart
 
